@@ -1,0 +1,136 @@
+
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+  #introCarousel {
+    margin-top: -58.59px;
+  }
+  .card:hover{
+    transform: scale(1.1);
+  }
+}
+
+.navbar .nav-link {
+  color: #fff !important;
+}
+
+body{
+    background-color: hsl(218, 41%, 15%);
+    background-image: radial-gradient(650px circle at 0% 0%,
+        hsl(218, 41%, 35%) 15%,
+        hsl(218, 41%, 30%) 35%,
+        hsl(218, 41%, 20%) 75%,
+        hsl(218, 41%, 19%) 80%,
+        transparent 100%),
+      radial-gradient(1250px circle at 100% 100%,
+        hsl(218, 41%, 45%) 15%,
+        hsl(218, 41%, 30%) 35%,
+        hsl(218, 41%, 20%) 75%,
+        hsl(218, 41%, 19%) 80%,
+        transparent 100%);
+}
+
+#radius-shape-1 {
+    height: 220px;
+    width: 220px;
+    top: -60px;
+    left: -130px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+  }
+
+  #radius-shape-2 {
+    border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+    bottom: -60px;
+    right: -110px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(#44006b, #ad1fff);
+    overflow: hidden;
+    overflow-y: hidden;
+  }
+  
+#box,h4 {
+    color: aliceblue;
+}
+.container-fluid a:hover {
+  font-size: large;
+}
+
+.carousel-item a:hover {
+    font-size: large;
+	  color: #50aedd;
+}
+
+
+.carousel-item a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  a:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }
+  @media screen and (max-height: 300px) {
+      ul {
+          margin-top: 40px;
+      }
+      
+     
+  }
+  
+
+.btn-primary {
+    color: #fff;
+    background-color:rgb(42, 78, 96);
+    border-color:rgb(41, 75, 92);
+}
+
+
+
+.card-body p {
+  line-height: 1.6rem;
+  font-weight: 500;
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-text-container i {
+  margin-right: 10px; /* Adjust the margin as needed */
+  
+}
+
+.card-button {
+  margin-top: 1.2rem;
+}
+
+.icon-text-container p{
+  line-height: 2rem;
+}
+
+.text-muted{
+  color: aliceblue;
+}
+
+.contactus {
+  color: #fff;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-separator {
+  border-top: 2px solid #fdf9f9; /* Adjust the color and thickness as needed */
+  margin: 50px 0; /* Adjust the margin as needed */
+}
