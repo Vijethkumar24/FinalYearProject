@@ -1,0 +1,192 @@
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+    #introCarousel {
+      margin-top: -58.59px;
+    }
+    .card:hover{
+      transform: scale(1.1);
+    }
+    .card {
+        height: 20rem;
+     /* Add margin to the right and bottom of each card */
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        line-height: 2rem;
+        margin: auto; /* Center the card horizontally */
+        margin-top: auto; /* Center the card vertically */
+        margin-bottom: auto; /* Center the card vertically */
+    }
+    .card-body {
+        text-align: center; 
+        align-items: center;
+        justify-content: center;
+        margin-top: 4rem; 
+    }
+      .card-body i {
+        margin-bottom: 1.5rem;
+      }
+  }
+  
+  .navbar .nav-link {
+    color: #fff !important;
+  }
+
+  body{
+    overflow-x: hidden;
+      background-color: hsl(218, 41%, 15%);
+      background-image: radial-gradient(650px circle at 0% 0%,
+          hsl(218, 41%, 35%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%),
+        radial-gradient(1250px circle at 100% 100%,
+          hsl(218, 41%, 45%) 15%,
+          hsl(218, 41%, 30%) 35%,
+          hsl(218, 41%, 20%) 75%,
+          hsl(218, 41%, 19%) 80%,
+          transparent 100%);
+          background-repeat: no-repeat;
+          height: 100vh;
+  }
+  h2{
+    color: #fff;
+    position: relative;
+  }
+  
+  #radius-shape-1 {
+    height: 20rem;
+    width: 20rem;
+    top: -100px;
+    left: -100px;
+      background: radial-gradient(#44006b, #ad1fff);
+      overflow: hidden;
+  }
+  
+  #radius-shape-2 {
+      height: 20rem;
+      width: 20rem;
+      bottom: 0rem;
+      right: -6.5rem;
+      width: 20%;
+      height: 35%;
+      background: radial-gradient(#44006b, #ad1fff);
+      overflow: hidden;
+  }
+  
+  
+  .container-fluid a:hover {
+    font-size: large;
+  }
+  
+  .carousel-item a:hover {
+      font-size: large;
+      color: #50aedd;
+  }
+  
+  .carousel-item a:after {    
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: #fff;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+  }
+  
+  a:hover:after { 
+      width: 100%; 
+      left: 0; 
+  }
+
+@media (max-width: 700px) {
+    .card {
+        height: 20rem;
+     /* Add margin to the right and bottom of each card */
+        align-items: center;
+        justify-content: center;
+        line-height: 2rem;
+        margin: auto; /* Center the card horizontally */
+        margin-top: auto; /* Center the card vertically */
+        margin-bottom: 1rem; /* Center the card vertically */
+        position: relative;
+    }
+    .card-body {
+        text-align: center; 
+        align-items: center;
+        justify-content: center;
+        margin-top: 4rem; 
+    }
+      .card-body i {
+        margin-bottom: 1.5rem;
+      }
+    
+}
+
+  
+  .btn-primary {
+      color: #fff;
+      background-color: rgb(42, 78, 96);
+      border-color: rgb(41, 75, 92);
+  }
+  
+  .card-body p {
+      line-height: 1.6rem;
+      font-weight: 500;
+  }
+  
+  .icon-text-container {
+      display: flex;
+      align-items: center;
+  }
+  
+  .icon-text-container i {
+      margin-right: 10px;
+  }
+  
+  .card-button {
+      margin-top: 1.2rem;
+  }
+  
+  .icon-text-container p{
+      line-height: 2rem;
+  }
+  
+  .text-muted{
+      color: aliceblue;
+  }
+  
+  .contactus {
+      color: #fff;
+      width: 60vw;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .previous-page-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.previous-page-btn:hover {
+        /* Darker shade of blue */
+        transform: translateX(-20px); 
+        background-color: #b30000;
+}
+
+  
+ 
