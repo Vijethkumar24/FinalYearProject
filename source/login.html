@@ -38,9 +38,9 @@
                                 <!-- MetaMask logo -->
                                 <img src="/assets/images/MetaMask_Fox.svg.png" alt="MetaMask Logo" style="width: 250px;height: 250px;">
                                 <!-- Connect MetaMask button -->
-                                <button typ="button" class="btn btn-primary btn-block mb-4" onclick="App()">
-                                    Connect MetaMask Wallet
-                                </button>
+                                <button id="connectButton" type="button" class="btn btn-primary btn-block mb-4">
+                                    Connect MetaMask Wallet</button>
+                                <div id="accountDetails"></div>
                                 <!-- Link to MetaMask support -->
                                 <a href="https://support.metamask.io/hc/en-us/articles/360015489531-Getting-started-with-MetaMask">
                                     <p>Don't have a MetaMask Account?</p>
@@ -59,10 +59,49 @@
     
     
     <!-- Add your custom scripts here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.6/web3.min.js"></script>
     <script>
-        function App() {
-            // Your MetaMask connection logic here
-        }
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check if MetaMask is installed and available
+            if (window.ethereum) {
+                const web3 = new Web3(window.ethereum);
+                const connectButton = document.getElementById('connectButton');
+                const accountDetailsDiv = document.getElementById('accountDetails');
+
+                async function fetchAccountDetails() {
+                    try {
+                        // Request account access
+                        await window.ethereum.request({ method: 'eth_requestAccounts' });
+                        // Accounts now exposed
+                        const accounts = await web3.eth.getAccounts();
+                        const userAddress = accounts[0];
+                        console.log("Connected with address:", userAddress);
+                        return userAddress;
+                    } catch (error) {
+                        console.error(error);
+                        return null;
+                    }
+                }
+
+                function updateUI(account) {
+                    if (account) {
+                        accountDetailsDiv.textContent = "Connected with address: ${account}";
+                        // Perform other UI updates or actions here
+                    } else {
+                        accountDetailsDiv.textContent = "Failed to connect to MetaMask.";
+                    }
+                }
+
+                connectButton.addEventListener('click', async () => {
+                    const userAddress = await fetchAccountDetails();
+                    updateUI(userAddress);
+                    // Trigger other actions here based on the connected account
+                    // For example, interact with smart contracts, update UI, etc.
+                });
+            } else {
+                console.log("MetaMask not detected.");
+            }
+        });
     </script>
 </body>
 </html>

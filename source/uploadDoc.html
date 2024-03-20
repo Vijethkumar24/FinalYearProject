@@ -90,11 +90,21 @@
                     </div>
                     <div class="form-group mt-3">
                         <label for="password1">Password:</label>
-                        <input type="password" class="form-control" id="password1" name="password1">
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="userpassword" name="password1">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword1">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group mt-3">
                         <label for="password2">Confirm Password:</label>
-                        <input type="password" class="form-control" id="password1" name="password2">
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="userConfirmPass"  name="password2">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword2">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="disclaimer1">
@@ -124,12 +134,22 @@
                         <input type="file" id="input-file-now-custom" class="file-upload" data-height="500" />
                     </div>
                     <div class="form-group mt-3">
-                        <label for="password2">Password:</label>
-                        <input type="password" class="form-control" id="password2" name="password2">
+                        <label for="password1">Password:</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="userpassword" name="password1">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword1">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group mt-3">
                         <label for="password2">Confirm Password:</label>
-                        <input type="password" class="form-control" id="password2" name="password2">
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="userConfirmPass"  name="password2">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword2">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="disclaimer2">
@@ -138,7 +158,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" >Upload</button>
+                    <button type="button"  class="btn btn-primary" >Upload</button>
                 </div>
             </div>
         </div>
@@ -159,12 +179,22 @@
                         <input type="file" id="input-file-now-custom" class="file-upload" data-height="500" />
                     </div>
                     <div class="form-group mt-3">
-                        <label for="password3">Password:</label>
-                        <input type="password" class="form-control" id="password3" name="password3">
+                        <label for="password1">Password:</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="userpassword" name="password1">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword1">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group mt-3">
                         <label for="password2">Confirm Password:</label>
-                        <input type="password" class="form-control" id="password3" name="password2">
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="userConfirmPass" name="password2">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword2">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="disclaimer3">
@@ -182,13 +212,79 @@
         function goToPreviousPage() {
             window.history.back(); // This will navigate to the previous page
         }
+        // function uploadFile()
+        // {
+        //    const password = document.getElementById("userpassword").value;
+        //    const confirmPass = document.getElementById("userConfirmPass").value;
+        //    const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{10,}$/;
+        //    const img =document.getElementById("input-file-now-custom").value;
+        //     if (password !== confirmPass) {
+        //         alert("Passwords do not match.");
+        //          return;
+        //     }
+      
+
+
+        //     if (!passwordRegex.test(password)) {
+        //     alert(
+        //     "Password should be minimum 10 characters long, start with a capital letter, contain at least  one special character (!@#$%^&*), and at least one digit."
+        //          );
+        //    return console.log(img);
+        
+        // }
+        
+//     document.addEventListener("DOMContentLoaded", function() {
+//     document.getElementById('togglePassword1').addEventListener('click', function () {
+//         const password1 = document.getElementById('userpassword');
+//         const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+//         password1.setAttribute('type', type);
+//         this.querySelector('i').classList.toggle('fa-eye-slash');
+//     });
+
+//     document.getElementById('togglePassword2').addEventListener('click', function () {
+//         const password2 = document.getElementById('userConfirmPass');
+//         const type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+//         password2.setAttribute('type', type);
+//         this.querySelector('i').classList.toggle('fa-eye-slash');
+//     });
+// });
+
+//   function uploadFile() {
+//     var password1 = document.getElementById("password-1").value;
+//     var password2 = document.getElementById("password-2").value;
+//     var password3 = document.getElementById("password-3").value; // This line causes the error
+// // This line causes the error
+
+
+//   // Password validation rules
+//   var passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).{10,}$/;
+
+//   if (password1 !== password2 || password2 !== password3) {
+//     alert("Passwords do not match.");
+//     return;
+//   }
+
+//   if (!passwordRegex.test(password1)) {
+//     alert(
+//       "Password should be minimum 10 characters long, start with a capital letter, contain at least one special character (!@#$%^&*), and at least one digit."
+//     );
+//     return;
+//   }
+
+  // If password passes validation, proceed with upload
+  // You can add your upload logic here
+//   console.log("Upload logic goes here");
+// }
+
+
     </script>
+    <script src="/assets/scripts/passWordValidation.js"></script>
     <!--Scripts-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="/assets/scripts/fileUpload.js"></script>
-    <script src="/assets/scripts/passWordValidation.js"> 
+    
+    
     </script>
    
    

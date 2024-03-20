@@ -17,26 +17,38 @@ app.use(
   "/assets/styles",
   express.static(path.join(__dirname, "assets/styles"))
 );
+app.use(
+  "/assets/scripts",
+  express.static(path.join(__dirname, "assets/scripts"))
+);
 
 // Set up multer for handling file uploads
 const upload = multer({ dest: "uploads/" });
 
 // AES encryption settings
 const algorithm = "aes-256-cbc";
-const key = crypto.randomBytes(32); // Generate a random key (32 bytes) for AES encryption
-const iv = crypto.randomBytes(16); // Generate a random IV (Initialization Vector) for AES encryption
+
+// Function to derive key from password using PBKDF2
+function deriveKeyFromPassword(password) {
+  const salt = crypto.randomBytes(16); // Generate a random salt
+  return crypto.pbkdf2Sync(password, salt, 100000, 32, "sha256");
+}
 
 // Encrypt function
-function encrypt(buffer) {
+function encrypt(buffer, key) {
+  const iv = crypto.randomBytes(16); // Generate a random IV for each encryption
   const cipher = crypto.createCipheriv(algorithm, key, iv);
   const encrypted = Buffer.concat([cipher.update(buffer), cipher.final()]);
-  return encrypted;
+  return { encryptedData: encrypted, iv: iv };
 }
 
 // Decrypt function
-function decrypt(buffer) {
+function decrypt(encryptedData, key, iv) {
   const decipher = crypto.createDecipheriv(algorithm, key, iv);
-  const decrypted = Buffer.concat([decipher.update(buffer), decipher.final()]);
+  const decrypted = Buffer.concat([
+    decipher.update(encryptedData),
+    decipher.final(),
+  ]);
   return decrypted;
 }
 
@@ -51,13 +63,18 @@ app.get("/uploadDoc.html", (req, res) => {
 });
 
 // Handle file upload on /upload route
-app.post("/upload", upload.single("file"), (req, res) => {
+app.post("/uploads", upload.single("file"), (req, res) => {
   try {
+    const password = req.body.password; // Assuming the user's password is sent in the request body
+
+    // Derive key from password
+    const key = deriveKeyFromPassword(password);
+
     // Read the uploaded file
     const fileBuffer = fs.readFileSync(req.file.path);
 
     // Encrypt the file
-    const encryptedBuffer = encrypt(fileBuffer);
+    const { encryptedData, iv } = encrypt(fileBuffer, key);
 
     // Store the encrypted file
     const encryptedFilePath = path.join(
@@ -65,7 +82,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
       "uploads",
       `${req.file.originalname}.enc`
     );
-    fs.writeFileSync(encryptedFilePath, encryptedBuffer);
+    fs.writeFileSync(encryptedFilePath, encryptedData);
 
     // Respond with success message
     res.json({
